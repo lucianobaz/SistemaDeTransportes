@@ -1,9 +1,14 @@
+// ===================================================================
+// Clase Camion
+// ===================================================================
 public class Camion {
-    private String matricula;
+    // Atributos del camión
+    private String matricula; // Se almacena en mayúsculas
     private String modelo;
     private String tipo;
     private double potencia;
 
+    // Constructor: asegura que la matrícula se guarde en mayúsculas con toUpperCase()
     public Camion(String matricula, String modelo, String tipo, double potencia) {
         this.matricula = matricula != null ? matricula.toUpperCase() : null;
         this.modelo = modelo;
@@ -11,10 +16,12 @@ public class Camion {
         this.potencia = potencia;
     }
 
+    // Valida que la matrícula tenga al menos 7 caracteres y contenga un espacio (ej: "SAB 1234")
     public boolean esMatriculaValida() {
         return matricula != null && matricula.length() >= 7 && matricula.contains(" ");
     }
 
+    // Getters y Setters
     public String getMatricula() {
         return matricula;
     }

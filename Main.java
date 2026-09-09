@@ -47,15 +47,22 @@ public class Main {
         PaqueteEstandar paq1 = new PaqueteEstandar("COD001", "Ropa", "Ana Gomez", "Calle Rivera 456", montevideo, 3.5, 200.0);
         asignarPaquete(paq1, camionero1, paquetes, camionerosDePaquetes);
 
-        PaqueteFragil paq2 = new PaqueteFragil("COD002", "Vajilla", "Luis Diaz","Avenida Italia 789", montevideo, "Alto", 150.0);
+        PaqueteFragil paq2 = new PaqueteFragil("COD002", "Vajilla", "Luis Diaz", "Avenida Italia 789", montevideo, "Alto", 150.0);
         asignarPaquete(paq2, camionero1, paquetes, camionerosDePaquetes);
         //____________________________________________________
-        Departamento buenosAires = new Departamento("02", "Buenos Aires");
+        Departamento canelones = new Departamento("02", "Canelones");
 
-        Camionero camionero2 = new Camionero("2.458.654-9", "Taylor Swift", "099436643", "Agraciada 356", 35000.0, "Buenos Aires");
+        Camionero camionero2 = new Camionero("2.458.654-9", "Taylor Swift", "099436643", "Agraciada 356", 38000.0, "Canelones");
 
-        PaqueteEstandar paq3 = new PaqueteEstandar("COD003", "Electronica", "Marcos Silva", "Calle Colon 789", buenosAires, 2.0, 300.0);
+        Camion camion2 = new Camion("STP 5678", "Volvo", "Camión", 210.0);
+
+        Conduccion conduccion2 = new Conduccion(camionero2, camion2, LocalDate.of(2026, 3, 16));
+
+        PaqueteEstandar paq3 = new PaqueteEstandar("COD003", "Electronica", "Marcos Silva", "Calle Colon 789", canelones, 2.0, 300.0);
         asignarPaquete(paq3, camionero2, paquetes, camionerosDePaquetes);
+
+        PaqueteFragil paq4 = new PaqueteFragil("COD004", "Cuadro de arte", "Lucia Fernandez", "Av. Giannattasio 2200", canelones, "Medio", 200.0);
+        asignarPaquete(paq4, camionero2, paquetes, camionerosDePaquetes);
         //______________________________________________________________
        
         //recorrido polimórfico, busca el camionero de cada paquete para mostrarlo

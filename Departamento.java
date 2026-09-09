@@ -1,3 +1,7 @@
+// ===================================================================
+// Clase Departamento
+// Representa el departamento geográfico de destino de los paquetes
+// ===================================================================
 public class Departamento {
     private String codigo;
     private String nombre;
