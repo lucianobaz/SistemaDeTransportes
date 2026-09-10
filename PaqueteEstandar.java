@@ -2,7 +2,7 @@
 //Subclase PaqueteEstandar (Hereda de Paquete)
 //===================================================================
 public class PaqueteEstandar extends Paquete {
-    //Atributos específicos del paquete estándar
+//Atributos específicos del paquete estándar
     private double peso;
     private double costoBase;
 

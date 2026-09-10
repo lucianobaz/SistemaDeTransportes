@@ -3,7 +3,7 @@
 //===================================================================
 
 public class PaqueteFragil extends Paquete {
-
+//Atributos específicos del paquete frágil
     private String nivelCuidado;
     private double costoSeguro;
 
