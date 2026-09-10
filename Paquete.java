@@ -1,10 +1,9 @@
-// ===================================================================
-// Clase Abstracta Paquete (Implementa la interfaz Rastreable)
-// Sirve como molde base para PaqueteEstandar y PaqueteFragil
-// ===================================================================
+//===================================================================
+//Clase Abstracta Paquete - Implementa la interfaz Rastreable
+//===================================================================
 public abstract class Paquete implements Rastreable {
     
-    // Atributos comunes a todos los paquetes (encapsulamiento privado)
+    
     private String codigo;
     private String descripcion;
     private String destinatario;
@@ -12,14 +11,15 @@ public abstract class Paquete implements Rastreable {
     private Departamento departamento;
     private Camionero camionero;
 
-    // Constructor básico sin camionero asignado inicialmente
+//El constructor básico permite crear el paquete sin camionero para asignarlo más adelante.
     public Paquete(String codigo, String descripcion, String destinatario, String direccion, Departamento departamento) {
         this(codigo, descripcion, destinatario, direccion, departamento, null);
     }
 
-    // Constructor completo con asignación de camionero
+
+//EL constructor completo permite crear el paquete ya asignado a un camionero.
     public Paquete(String codigo, String descripcion, String destinatario, String direccion, Departamento departamento, Camionero camionero) {
-        setCodigo(codigo); // Usamos setCodigo para que aplique la limpieza de espacios y mayúsculas
+        setCodigo(codigo); //Usamos setCodigo para que aplique la limpieza de espacios y mayúsculas
         this.descripcion = descripcion;
         this.destinatario = destinatario;
         this.direccion = direccion;
@@ -27,19 +27,22 @@ public abstract class Paquete implements Rastreable {
         this.camionero = camionero;
     }
 
-    // Método abstracto: cada tipo de paquete tiene su propia fórmula de costo
+
+//Método abstracto: cada tipo de paquete tiene su propia fórmula de costo
     public abstract double calcularCostoEnvio();
 
-    // Método concreto: convierte el costo en pesos ($U) a dólares ($USD) dividiendo por el tipo de cambio
+
+    
+//Convierte el costo en pesos a dólares dividiendo por el tipo de cambio
     public double calcularCostoEnDolares(double tipoCambio) {
         if (tipoCambio <= 0) {
-            return 0.0; // Validación simple para evitar división por cero
+            return 0.0; //Validación simple para evitar que se divida por cero
         }
         return this.calcularCostoEnvio() / tipoCambio;
     }
 
-    // Método para abreviar la dirección en la etiqueta de envío
-    // Reemplaza "Avenida " y "Av. " por "Avda. ", y "Calle " por "C/ "
+//Método para abreviar la dirección en la etiqueta de envío
+//Reemplaza "Avenida " y "Av. " por "Avda. ", y "Calle " por "C/ "
     public String formatearDireccionEtiqueta() {
         if (this.direccion == null) return "";
         return this.direccion
@@ -48,12 +51,12 @@ public abstract class Paquete implements Rastreable {
                 .replace("Calle ", "C/ ");
     }
 
-    // Getters y Setters
-    public String getCodigo() { 
-        return codigo; 
+//Getters y Setters
+    public String getCodigo() {
+        return codigo;
     }
     
-    // trim() elimina espacios al inicio y al final; toUpperCase() convierte a mayúsculas
+//trim() elimina espacios al inicio y al final; toUpperCase() convierte a mayúsculas
     public void setCodigo(String codigo) {
         this.codigo = (codigo != null) ? codigo.trim().toUpperCase() : "";
     }

@@ -1,23 +1,23 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// ===================================================================
-// Clase Camionero
-// Representa al encargado de transportar y distribuir los paquetes
-// ===================================================================
+//===================================================================
+//Clase Camionero
+//Representa al encargado de transportar y distribuir los paquetes
+//===================================================================
 public class Camionero {
-    // Atributos del camionero
-    private String ci;               // Cédula limpia (solo números)
+    //Atributos del camionero
+    private String ci; //Cédula limpia (solo números)
     private String nombre;
     private String telefono;
     private String direccion;
-    private double salario;          // En pesos uruguayos ($U)
+    private double salario; //En pesos uruguayos ($U)
     private String ciudadResidencia;
-    private List<String> paquetesAsignados; // Lista de códigos de paquetes transportados
+    private List<String> paquetesAsignados; //Lista de códigos de paquetes transportados
 
-    // Constructor: limpia automáticamente la cédula al crear el objeto
+    //Constructor: limpia automáticamente la cédula al crear el objeto
     public Camionero(String ci, String nombre, String telefono, String direccion, double salario, String ciudadResidencia) {
-        setCi(ci); // Aplica limpiarCI
+        setCi(ci); //Aplica limpiarCI
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
@@ -26,13 +26,13 @@ public class Camionero {
         this.paquetesAsignados = new ArrayList<>();
     }
 
-    // Método que elimina puntos y guiones usando expresión regular "[.-]"
+    //Método que elimina puntos y guiones usando expresión regular "[.-]"
     public String limpiarCI(String ciConFormato) {
         if (ciConFormato == null) return "";
         return ciConFormato.replaceAll("[.-]", "").trim();
     }
 
-    // Getters y Setters
+    //Getters y Setters
     public String getCi() {
         return ci;
     }
